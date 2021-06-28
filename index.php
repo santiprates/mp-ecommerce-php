@@ -2,16 +2,16 @@
 require 'vendor/autoload.php';
 
 $access_token = 'APP_USR-6317427424180639-042414-47e969706991d3a442922b0702a0da44-469485398';
-$platform_id = 'aplixer_24c65fb163bf11ea96500242ac130004';
+$platform_id = 'PLATFORM_ID';
 $integrator_id = 'dev_24c65fb163bf11ea96500242ac130004';
-$corporation_id = 'aplixer_24c65fb163bf11ea96500242ac130004';
+$corporation_id = 'CORPORATION_ID';
 
 
 MercadoPago\SDK::initialize();
 MercadoPago\SDK::setAccessToken($access_token);
-// MercadoPago\SDK::setPlatformId($platform_id);
+MercadoPago\SDK::setPlatformId($platform_id);
 MercadoPago\SDK::setIntegratorId($integrator_id);
-// MercadoPago\SDK::setCorporationId($corporation_id);
+MercadoPago\SDK::setCorporationId($corporation_id);
 
 $config = MercadoPago\SDK::config();
 
