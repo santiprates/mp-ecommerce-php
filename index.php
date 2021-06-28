@@ -599,97 +599,6 @@ $config = MercadoPago\SDK::config();
 
 <?php if( isset( $_POST['checkout'] ) && isset( $_POST['id'] ) &&  isset( $_POST['img'] ) && isset( $_POST['title'] ) && isset( $_POST['price'] ) && isset( $_POST['unit'] ) ) { ?>
 
-<?php
-    /* PREFERENCE CREATION */
-
-    $preference = new MercadoPago\Preference();
-
-    /* PAYER */
-    $payer = new MercadoPago\Payer();
-    $payer->name = 'Lalo';
-    $payer->surname = 'Landa';
-    $payer->email = 'test_user_63274575@testuser.com';
-    $payer->phone = array(
-        'area_code' => '11',
-        'number' => '22223333'
-    );
-
-    $payer->address = array(
-        'zip_code' => '1111',
-        'street_name' => 'Falsa',
-        'street_number' => '123'
-    );
-
-    $preference->payer = $payer;
-
-    /* ************************************ */
-
-    /* ITEM */
-
-    $item = new MercadoPago\Item();
-    $item->id = '1234';
-    $item->title = $_POST['title'];
-    $item->description = 'Dispositivo móvil Tienda e-commerce';
-    $item->picture_url = 'https://'.$_SERVER['HTTP_HOST'] . substr($_POST['img'], 1); 
-    $item->quantity = '1';
-    $item-> currency_id = '$';
-    $item-> unit_price = $_POST['price'];
-
-    $preference->items = array($item);
-
-    /* ************************************ */
-
-    /* SHIPMENT */
-    
-    $shipment = new MercadoPago\Shipments();
-    $shipment->receiver_address = array(
-        'zip_code' => '111',
-        'street_name' => 'Falsa',
-        'street_number' => '123'
-    );
-
-    $preference->shipments = $shipment;
-
-    /* ************************************ */
-
-    /* BACK URLS */
-
-    $preference->back_urls = array(
-        'success' => 'https://'.$_SERVER['HTTP_HOST'] . '/success.php',
-        'pending' => 'https://'.$_SERVER['HTTP_HOST'] . '/pending.php',
-        'failure' => 'https://'.$_SERVER['HTTP_HOST'] . '/failure.php'
-    );
-
-
-    /* ************************************ */
-
-    /* PAYMENT METHODS */
-
-    $preference->payment_methods = array(
-            'excluded_payment_methods' => array(
-                'id' => 'amex'
-            ),
-            'excluded_payment_types' => array(
-                'id' => 'atm'
-            ),
-            'installments' => 6,
-        
-        );
-
-    /* ************************************ */
-
-    /* EXTERNAL REFERENCE */
-
-    $preference->external_reference = 'sprates@aplixer.com';
-    $preference->notification_url = 'https://'.$_SERVER['HTTP_HOST'] . '/notifications.php';
-    $preference->auto_return = 'approved';
-    
-    $preference->save();
-
-    /* ************************************ */
-
-
-    ?>
 
     <p><a href="#modal-checkout" id="aplixer-modal-checkout" rel="modal:open">Checkout</a></p>
 
@@ -762,14 +671,100 @@ $config = MercadoPago\SDK::config();
                             <input type="number" name="street_number" id="street_number" value="123" disabled>
                         </div>
                     </div>
-                    <div class="aplixer-checkout-row">
+                    <div class="aplixer-checkout-row">                    
                     <?php
-                    
-                    echo "<a href='$preference->init_point'>
-                    <button type='button' class='mercadopago-button' formmethod='post'>Pagar la compra</button>
-                    </a>";
-                    
-                    ?>    
+                        /* PREFERENCE CREATION */
+
+                        $preference = new MercadoPago\Preference();
+
+                        /* PAYER */
+                        $payer = new MercadoPago\Payer();
+                        $payer->name = 'Lalo';
+                        $payer->surname = 'Landa';
+                        $payer->email = 'test_user_63274575@testuser.com';
+                        $payer->phone = array(
+                            'area_code' => '11',
+                            'number' => '22223333'
+                        );
+
+                        $payer->address = array(
+                            'zip_code' => '1111',
+                            'street_name' => 'Falsa',
+                            'street_number' => '123'
+                        );
+
+                        $preference->payer = $payer;
+
+                        /* ************************************ */
+
+                        /* ITEM */
+
+                        $item = new MercadoPago\Item();
+                        $item->id = '1234';
+                        $item->title = $_POST['title'];
+                        $item->description = 'Dispositivo móvil Tienda e-commerce';
+                        $item->picture_url = 'https://'.$_SERVER['HTTP_HOST'] . substr($_POST['img'], 1); 
+                        $item->quantity = '1';
+                        $item-> currency_id = '$';
+                        $item-> unit_price = $_POST['price'];
+
+                        $preference->items = array($item);
+
+                        /* ************************************ */
+
+                        /* SHIPMENT */
+                        
+                        $shipment = new MercadoPago\Shipments();
+                        $shipment->receiver_address = array(
+                            'zip_code' => '111',
+                            'street_name' => 'Falsa',
+                            'street_number' => '123'
+                        );
+
+                        $preference->shipments = $shipment;
+
+                        /* ************************************ */
+
+                        /* BACK URLS */
+
+                        $preference->back_urls = array(
+                            'success' => 'https://'.$_SERVER['HTTP_HOST'] . '/success.php',
+                            'pending' => 'https://'.$_SERVER['HTTP_HOST'] . '/pending.php',
+                            'failure' => 'https://'.$_SERVER['HTTP_HOST'] . '/failure.php'
+                        );
+
+
+                        /* ************************************ */
+
+                        /* PAYMENT METHODS */
+
+                        $preference->payment_methods = array(
+                                'excluded_payment_methods' => array(
+                                    'id' => 'amex'
+                                ),
+                                'excluded_payment_types' => array(
+                                    'id' => 'atm'
+                                ),
+                                'installments' => 6,
+                            
+                            );
+
+                        /* ************************************ */
+
+                        /* EXTERNAL REFERENCE */
+
+                        $preference->external_reference = 'sprates@aplixer.com';
+                        $preference->notification_url = 'https://'.$_SERVER['HTTP_HOST'] . '/notifications.php';
+                        $preference->auto_return = 'approved';
+                        
+                        $preference->save();
+
+                        echo "<a href='$preference->init_point'><button type='button' class='mercadopago-button' formmethod='post'>Pagar la compra</button></a>";
+
+                        /* ************************************ */
+
+
+                        ?>
                     
                     </div>
             </div>
