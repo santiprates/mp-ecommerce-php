@@ -695,6 +695,7 @@ $config = MercadoPago\SDK::config();
 
                         $preference->payer = $payer;
 
+
                         /* ************************************ */
 
                         /* ITEM */
@@ -708,7 +709,9 @@ $config = MercadoPago\SDK::config();
                         $item-> currency_id = '$';
                         $item-> unit_price = $_POST['price'];
 
-                        $preference->items = $item;
+                        $preference->items = array($item);
+
+
 
                         /* ************************************ */
 
@@ -723,6 +726,8 @@ $config = MercadoPago\SDK::config();
 
                         $preference->shipments = $shipment;
 
+
+
                         /* ************************************ */
 
                         /* BACK URLS */
@@ -733,6 +738,8 @@ $config = MercadoPago\SDK::config();
                             'failure' => 'https://'.$_SERVER['HTTP_HOST'] . '/failure.php'
                         );
 
+                        
+
 
                         /* ************************************ */
 
@@ -740,14 +747,17 @@ $config = MercadoPago\SDK::config();
 
                         $preference->payment_methods = array(
                                 'excluded_payment_methods' => array(
-                                    'id' => 'amex'
+                                    array('id' => 'amex')
                                 ),
                                 'excluded_payment_types' => array(
-                                    'id' => 'atm'
+                                    array('id' => 'atm')
                                 ),
                                 'installments' => 6,
                             
                             );
+
+                            
+
 
                         /* ************************************ */
 
@@ -756,8 +766,12 @@ $config = MercadoPago\SDK::config();
                         $preference->external_reference = 'sprates@aplixer.com';
                         $preference->notification_url = 'https://'.$_SERVER['HTTP_HOST'] . '/notifications.php';
                         $preference->auto_return = 'approved';
+
                         
                         $preference->save();
+
+                        echo '<pre>' . var_export($preference, true) . '</pre>';
+
 
                         echo "<a href='$preference->init_point'><button type='button' class='mercadopago-button' formmethod='post'>Pagar la compra</button></a>";
 
