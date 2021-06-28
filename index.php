@@ -630,7 +630,7 @@ $config = MercadoPago\SDK::config();
     $item->id = '1234';
     $item->title = $_POST['title'];
     $item->description = 'Dispositivo móvil Tienda e-commerce';
-    $item->picture_url = $_SERVER['HTTP_HOST'] . substr($_POST['img'], 1); 
+    $item->picture_url = 'https://'.$_SERVER['HTTP_HOST'] . substr($_POST['img'], 1); 
     $item->quantity = '1';
     $item-> currency_id = '$';
     $item-> unit_price = $_POST['price'];
@@ -655,9 +655,9 @@ $config = MercadoPago\SDK::config();
     /* BACK URLS */
 
     $preference->back_urls = array(
-        'success' => $_SERVER['HTTP_HOST'] . '/success.php',
-        'pending' => $_SERVER['HTTP_HOST'] . '/pending.php',
-        'failure' => $_SERVER['HTTP_HOST'] . '/failure.php'
+        'success' => 'https://'.$_SERVER['HTTP_HOST'] . '/success.php',
+        'pending' => 'https://'.$_SERVER['HTTP_HOST'] . '/pending.php',
+        'failure' => 'https://'.$_SERVER['HTTP_HOST'] . '/failure.php'
     );
 
 
@@ -681,7 +681,7 @@ $config = MercadoPago\SDK::config();
     /* EXTERNAL REFERENCE */
 
     $preference->external_reference = 'sprates@aplixer.com';
-    $preference->notification_url = $_SERVER['HTTP_HOST'] . '/notifications.php';
+    $preference->notification_url = 'https://'.$_SERVER['HTTP_HOST'] . '/notifications.php';
     $preference->auto_return = 'approved';
     
     $preference->save();
@@ -707,7 +707,7 @@ $config = MercadoPago\SDK::config();
                 </div>
                 <div> 
                     <!-- <img src="./assets/img/motorola-moto-g5-plus-1.jpg"> -->
-                    <img src="<?php echo $_SERVER['HTTP_HOST'] . substr($_POST['img'], 1); ?>"" >
+                    <img src="<?php echo 'https://'.$_SERVER['HTTP_HOST'] . substr($_POST['img'], 1); ?>"" >
                 </div>
                 <div class="aplixer-display-flex-center-column aplixer-checkout-item">
                     <span><?php echo $_POST['title'];?></span> 
