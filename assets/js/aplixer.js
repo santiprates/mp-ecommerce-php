@@ -1,6 +1,6 @@
 (function($) {
 
-    var url_base = 'http://192.168.0.191:81';
+    var url_base = 'https://santiprates-mp-commerce-php.herokuapp.com';
 
     $(document).ready(function() {
 
