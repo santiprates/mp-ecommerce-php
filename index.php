@@ -770,9 +770,6 @@ $config = MercadoPago\SDK::config();
                         
                         $preference->save();
 
-                        echo '<pre>' . var_export($preference, true) . '</pre>';
-
-
                         echo "<a href='$preference->init_point'><button type='button' class='mercadopago-button' formmethod='post'>Pagar la compra</button></a>";
 
                         /* ************************************ */
