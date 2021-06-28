@@ -764,7 +764,7 @@ $config = MercadoPago\SDK::config();
                         /* EXTERNAL REFERENCE */
 
                         $preference->external_reference = 'sprates@aplixer.com';
-                        $preference->notification_url = 'https://'.$_SERVER['HTTP_HOST'] . '/notifications.php';
+                        $preference->notification_url = 'https://aplixer.com/mp-ecommerce-php/notifications.php';
                         $preference->auto_return = 'approved';
 
                         
