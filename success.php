@@ -22,8 +22,15 @@
   </a>
   <h1 class="text__success">¡Pago completado!</h1>
 <div class="aplixer-order-data">
-  <?php if(isset($_GET['payment_method_id']) && isset($_GET['external_reference']) && isset($_GET['payment_id'])){ ?>
-    <p><?php echo 'Método de pago: '.$_GET['payment_method_id']; ?></p>
+  <?php if(isset($_GET['external_reference']) && isset($_GET['payment_id'])){ ?>
+    <p><?php 
+      if(isset($_GET['external_reference'])){
+        echo 'Método de pago: '.$_GET['payment_method_id'];
+      }
+      else {
+        echo 'payment_method_id NO VIENE COMO PARÁMETRO DE URL';
+      }
+ ?></p>
     <p><?php echo 'Referencia externa: '.$_GET['external_reference']; ?></p>
     <p><?php echo 'Referencia de pago: '.$_GET['payment_id']; ?></p>
   <?php } ?>
