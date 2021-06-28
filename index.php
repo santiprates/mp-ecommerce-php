@@ -765,9 +765,9 @@ $config = MercadoPago\SDK::config();
                     <div class="aplixer-checkout-row">
                     <?php
                     
-                    echo '<a href="$preference->init_point">
-                    <button type="button" class="mercadopago-button" formmethod="post">Pagar la compra</button>
-                    </a>';
+                    echo "<a href='$preference->init_point'>
+                    <button type='button' class='mercadopago-button' formmethod='post'>Pagar la compra</button>
+                    </a>";
                     
                     ?>    
                     
