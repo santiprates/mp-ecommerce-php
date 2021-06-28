@@ -1,0 +1,166 @@
+@keyframes success {
+  0% {
+    background-color: #fff;
+    transform: scale(1);
+  }
+  10% {
+    transform: scale(1);
+    background-color: #fff;
+  }
+  15% {
+    background-color: #F19C30;
+    
+  }
+  30% {
+    transform: scale(40);
+  }
+  100% {
+    transform: scale(40);
+    color: #fff;
+  }
+}
+@keyframes check {
+  0% {
+    border-color: #fff;
+    height: 0;
+    width: 0;
+  }
+  6% {
+    height: 0;
+    width: 0;
+  }
+  50% {
+    width: 40px;
+    height: 0;
+  }
+  100% {
+    border-color: #fff;
+    color: #fff;
+  }
+}
+body {
+  margin: 0;
+  padding: 0;
+}
+
+.body {
+  font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
+  font-weight: 300;
+  background-color: #fff;
+  overflow: hidden;
+  position: relative;
+  color: #222;
+  width: 100vw;
+  height: 100vh;
+}
+
+.text__loading {
+  margin: 80px 0 0 0;
+  text-align: center;
+  font-size: 16px;
+  letter-spacing: 4px;
+  text-transform: uppercase;
+}
+
+.text__success {
+  z-index: 999999;
+  display: block;
+  text-align: center;
+  font-size: 16px;
+  letter-spacing: 4px;
+  text-transform: uppercase;
+  color: #fff;
+  /*margin: 80vh auto 0 auto;*/
+  position: relative;
+    margin-top: 33px;
+  top: 0;
+  left: 0;
+  bottom: 10px;
+  right: 0;
+}
+
+.button {
+  border: 4px solid #fff;
+  border-radius: 50%;
+  color: #FFF;
+  padding: 15px;
+  height: 120px;
+  width: 120px;
+  display: block;
+  /*margin: auto;*/
+  position: relative;
+  z-index: 5000;
+}
+
+.checkmark {
+  z-index: 8888;
+  display: block;
+  animation: check .8s;
+  animation-delay: 1.4s;
+  animation-fill-mode: forwards;
+  /*transform: scaleX(-1) rotate(135deg);*/
+  transform-origin: left top;
+  /*border-right: 4px solid transparent;*/
+  /*border-top: 4px solid transparent;*/
+  color:transparent;
+  content: '';
+  display: block;
+  height: 80px;
+  position: absolute;
+  width: 40px;
+  font-size:100px;
+  top: 15px;
+  left: 57px;
+}
+
+.trigger {
+  background: #F19C30;
+  position: relative;
+  display: block;
+  height: 150px;
+  width: 150px;
+  border-radius: 50%;
+  margin: auto;
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  z-index: 5000;
+}
+
+.scale {
+  animation-name: success;
+  animation-duration: 4s;
+  animation-timing-function: ease-in-out;
+  animation-fill-mode: forwards;
+}
+
+.successPayment{
+display: flex;
+  position: relative;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  height: 100%;
+}
+
+.btnInicio{
+	  z-index: 999999;
+  display: block;
+  text-align: center;
+  font-size: 16px;
+  letter-spacing: 4px;
+  text-transform: uppercase;
+  color: #fff;
+  /*margin: 80vh auto 0 auto;*/
+  position: relative;
+    margin-top: 33px;
+  
+    background: white;
+  color: #F19C30;
+  padding: 8px 16px;
+  border-radius: 20px;
+  text-decoration: none;
+}
+
