@@ -9,9 +9,9 @@ $corporation_id = 'CORPORATION_ID';
 
 MercadoPago\SDK::initialize();
 MercadoPago\SDK::setAccessToken($access_token);
-MercadoPago\SDK::setPlatformId($platform_id);
+// MercadoPago\SDK::setPlatformId($platform_id);
 MercadoPago\SDK::setIntegratorId($integrator_id);
-MercadoPago\SDK::setCorporationId($corporation_id);
+// MercadoPago\SDK::setCorporationId($corporation_id);
 
 $config = MercadoPago\SDK::config();
 
@@ -708,7 +708,7 @@ $config = MercadoPago\SDK::config();
                         $item-> currency_id = '$';
                         $item-> unit_price = $_POST['price'];
 
-                        $preference->items = array($item);
+                        $preference->items = $item;
 
                         /* ************************************ */
 
