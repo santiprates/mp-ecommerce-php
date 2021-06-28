@@ -12,13 +12,15 @@
     integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
     crossorigin="anonymous"></script>
 
-    <link rel="stylesheet" href="./assets/category-landing.css" media="screen, print">
+    <script src="https://www.mercadopago.com/v2/security.js" view="item"></script>
 
-    <link rel="stylesheet" href="./assets/category.css" media="screen, print">
+    <link rel="stylesheet" href="./assets/css/category-landing.css" media="screen, print">
 
-    <link rel="stylesheet" href="./assets/merch-tools.css" media="screen, print">
+    <link rel="stylesheet" href="./assets/css/category.css" media="screen, print">
 
-    <link rel="stylesheet" href="./assets/fonts" media="">
+    <link rel="stylesheet" href="./assets/css/merch-tools.css" media="screen, print">
+
+    <link rel="stylesheet" href="./assets/fonts/fonts" media="">
     <style>
         .as-filter-button-text {
             font-size: 26px;
@@ -100,7 +102,7 @@
                                             <div class="clearfix image-list xs-no-js as-util-relatedlink relatedlink" data-relatedlink="6|Powerbeats3 Wireless Earphones - Neighborhood Collection - Brick Red|MPXP2">
                                                 <div class="as-tilegallery-element as-image-selected">
                                                     <div class=""></div>
-                                                    <img src="./assets/003.jpg" class="ir ir item-image as-producttile-image" alt="" width="445" height="445" style="content:-webkit-image-set(url(<?php echo $_POST['img'] ?>) 2x);">
+                                                    <img src="./assets/img/003.jpg" class="ir ir item-image as-producttile-image" alt="" width="445" height="445" style="content:-webkit-image-set(url(<?php echo $_POST['img'] ?>) 2x);">
                                                 </div>
                                                 
                                             </div>
@@ -113,7 +115,8 @@
                                     </div>
 
                                 </div>
-                                <div class="as-producttile-info" style="float:left;min-height: 168px;">
+                                <form method="POST" action="/index.php#modal-checkout">
+                                    <div class="as-producttile-info" style="float:left;min-height: 168px;">
                                     <div class="as-producttile-titlepricewraper" style="min-height: 128px;">
                                         <div class="as-producttile-title">
                                             <h3 class="as-producttile-name">
@@ -130,8 +133,16 @@
                                             <?php echo "$" . $_POST['unit'] ?>
                                         </h3>
                                     </div>
+                                    <input type="hidden" name="img" value="<?php echo $_POST['img']  ?>" >
+                                    <input type="hidden" name="title" value="<?php echo $_POST['title']  ?>">
+                                    <input type="hidden" name="price" value="<?php echo $_POST['price']  ?>">
+                                    <input type="hidden" name="id" value="1234">
+                                    <input type="hidden" name="unit" value="1">
+                                    <input type="hidden" name="checkout" value="1">
                                     <button type="submit" class="mercadopago-button" formmethod="post">Pagar</button>
-                                </div>
+
+                                 </div>
+                                </form>
                             </div>
                         </div>
                     </div>
